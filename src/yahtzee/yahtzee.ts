@@ -11,13 +11,5 @@ export const sumScoreByTarget = (input: number[], target: number) => {
     return "Target must between 1-6"
   }
 
-  let sum = 0
-  for (let i = 0; i < input.length; i++) {
-    const value = input[i]
-    if (value === target) {
-      sum += value
-    }
-  }
-
-  return sum
+  return input.reduce((sum, dice) => dice === target ? sum + dice : sum, 0)
 }
